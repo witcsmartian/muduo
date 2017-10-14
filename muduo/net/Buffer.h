@@ -110,6 +110,11 @@ class Buffer : public muduo::copyable
   // retrieve returns void, to prevent
   // string str(retrieve(readableBytes()), readableBytes());
   // the evaluation of two functions are unspecified
+  
+  /**
+    *删除len字节的可读数据
+    *
+    */
   void retrieve(size_t len)
   {
     assert(len <= readableBytes());
@@ -150,6 +155,7 @@ class Buffer : public muduo::copyable
     retrieve(sizeof(int8_t));
   }
 
+/*读写游标归位*/
   void retrieveAll()
   {
     readerIndex_ = kCheapPrepend;
