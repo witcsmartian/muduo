@@ -42,6 +42,9 @@ namespace net
 class Buffer : public muduo::copyable
 {
  public:
+  /**
+    *定义了prependable的初始大小与writable的初始大小
+    */
   static const size_t kCheapPrepend = 8;
   static const size_t kInitialSize = 1024;
 
