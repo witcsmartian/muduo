@@ -77,6 +77,9 @@ class Buffer : public muduo::copyable
   size_t prependableBytes() const
   { return readerIndex_; }
 
+  /**
+    *返回buffer中content的起始位置
+    */
   const char* peek() const
   { return begin() + readerIndex_; }
 
