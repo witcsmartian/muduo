@@ -365,6 +365,7 @@ void TcpConnection::handleRead(Timestamp receiveTime)
   }
 }
 
+//当socket变得可写的时候，继续发送outputBuffer_中的数据
 void TcpConnection::handleWrite()
 {
   loop_->assertInLoopThread();
@@ -376,6 +377,7 @@ void TcpConnection::handleWrite()
     if (n > 0)
     {
       outputBuffer_.retrieve(n);
+      //数据已经全部发送完毕
       if (outputBuffer_.readableBytes() == 0)
       {
         channel_->disableWriting();
